@@ -1,6 +1,4 @@
 import fastify from 'fastify'
-import { knex } from './database'
-import { randomUUID } from 'node:crypto'
 import { env } from './env'
 import { usersRoutes } from './routes/users'
 
