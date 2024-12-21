@@ -2,18 +2,12 @@ import fastify from 'fastify'
 import { knex } from './database'
 import { randomUUID } from 'node:crypto'
 import { env } from './env'
+import { usersRoutes } from './routes/users'
 
 const app = fastify()
 
-app.get('/hello', async () => {
-  const user = await knex('users')
-    .insert({
-      id: randomUUID(),
-      first_name: 'Gustavo',
-      gender: 'male',
-    })
-    .returning('*')
-  return user
+app.register(usersRoutes, {
+  prefix: 'users',
 })
 
 app
