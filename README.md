@@ -9,7 +9,7 @@
 - [ ] Deve ser possivel apagar uma refeicao
 - [x] Deve ser possivel listar todas as refeicoes de um usuario
 - [x] Deve ser possivel visualizar uma unica refeicao
-- [ ] deve ser possivel recuperar as metricas de um usuario:
+- [x] deve ser possivel recuperar as metricas de um usuario:
   - Quantidade total de refeicoes registradas
   - Quantidade total de refeicoes dentro da dieta
   - Quantidade total de refeicoes fora da dieta

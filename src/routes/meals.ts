@@ -78,8 +78,7 @@ export async function mealsRoutes(app: FastifyInstance) {
         totalMeals: totalMeals.length,
         totalMealsOnDiet: totalMealsOnDiet?.total,
         totalMealsOffDiet: totalMealsOffDiet?.total,
-        bestSequenceOnDiet
-
+        bestSequenceOnDiet,
       })
     },
   )
