@@ -112,4 +112,68 @@ export async function mealsRoutes(app: FastifyInstance) {
       return reply.status(201).send({ Sucess: 'Meal registred sucessfully!' })
     },
   )
+
+  app.delete(
+    '/:mealId',
+    {
+      preHandler: [checkSessionIdExists],
+    },
+    async (request, reply) => {
+      const deleteParamsSchema = z.object({
+        mealId: z.string().uuid(),
+      })
+
+      const { mealId } = deleteParamsSchema.parse(request.params)
+
+      const meal = await knex('meals').where({ id: mealId }).first()
+
+      if (!meal) {
+        return reply.status(404).send({ error: 'Meal not found' })
+      }
+
+      await knex('meals').where({ id: mealId }).delete()
+
+      return reply.status(204).send()
+    },
+  )
+
+  app.put(
+    '/:mealId',
+    {
+      preHandler: [checkSessionIdExists],
+    },
+    async (request, reply) => {
+      const updateMealParamsSchema = z.object({
+        mealId: z.string().uuid(),
+      })
+
+      const { mealId } = updateMealParamsSchema.parse(request.params)
+
+      const updateMealBodySchema = z.object({
+        name: z.string(),
+        description: z.string(),
+        isOnDiet: z.boolean(),
+        date: z.coerce.date(),
+      })
+
+      const { name, description, isOnDiet, date } = updateMealBodySchema.parse(
+        request.body,
+      )
+
+      const meal = await knex('meals').where({ id: mealId }).first()
+
+      if (!meal) {
+        return reply.status(401).send({ error: 'Meal not foud' })
+      }
+
+      await knex('meals').where({ id: mealId }).update({
+        name,
+        description,
+        is_on_diet: isOnDiet,
+        date: date.getTime(),
+      })
+
+      return reply.status(204).send()
+    },
+  )
 }
