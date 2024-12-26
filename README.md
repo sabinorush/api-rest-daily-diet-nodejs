@@ -5,8 +5,8 @@
   - Descricao
   - Data e hora
   - Esta dentro ou nao da dieta
-- [ ] Deve ser possivel editar uma refeicao, podendo alterar todos os dados acima
-- [ ] Deve ser possivel apagar uma refeicao
+- [x] Deve ser possivel editar uma refeicao, podendo alterar todos os dados acima
+- [x] Deve ser possivel apagar uma refeicao
 - [x] Deve ser possivel listar todas as refeicoes de um usuario
 - [x] Deve ser possivel visualizar uma unica refeicao
 - [x] deve ser possivel recuperar as metricas de um usuario:
@@ -17,5 +17,5 @@
 
 ### RN - Regras de negocio:
 - [x] Deve ser possivel identificar o usuario entre as requisicoes
-- [ ] O usuario so pode visualizar, editar e apagar as refeicoes o qual ele criou
+- [x] O usuario so pode visualizar, editar e apagar as refeicoes o qual ele criou
 
